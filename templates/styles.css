@@ -1,0 +1,2281 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #0A437C;
+    --secondary-color: #F5F5F5;
+    --accent-color: #F28B30;
+    --text-color: #2B2B2B;
+    --light-bg: #F5F5F5;
+    --white: #FFFFFF;
+    --shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', 'Open Sans', 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header{
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.header-content {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo img {
+    height: 250px;
+    width:auto;
+}
+
+.navigation ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.navigation a {
+    /* text deco none gets rid of the underlines on <a> tags */
+    text-decoration: none; 
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.navigation a:hover,
+.navigation a.active {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+.hero {
+    position: relative;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+    border-radius: 8px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--white);
+    padding: 2rem;
+}
+
+.hero-content h1 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.hero-content .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    font-style: italic;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #F28B30;
+    color: #FFFFFF;
+}
+    
+
+.btn-primary:hover {
+    background-color: #d17a28;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(242, 139, 48, 0.3);
+}
+
+.btn-secondary {
+    background-color: #0A437C;
+    color: #FFFFFF;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #083358;
+    text-decoration: underline;
+}
+
+.about-section {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.about-section h2{
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.875rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-image img{
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.about-text h3 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.quick-links {
+    padding: 4rem 0;
+    background-color: var(--light-bg);
+}
+
+.quick-links h2{
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.875rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.link-card {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-color);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.link-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.link-card p {
+    color: #666;
+}
+
+.footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-section p {
+    margin-bottom: 0.5rem;
+    color: #ecf0f1;
+}
+
+.footer-section a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    transition: background-color 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #d17a28;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #34495e;
+}
+
+@media (max-width: 768px) {
+    .header-content{
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+.navigation ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+}
+
+.hero-content .subtitle {
+    font-size: 1.2rem;
+}
+
+.hero-buttons {
+    flex-direction: column;
+}
+
+.about-content {
+    grid-template-columns: 1fr;
+}
+
+.links-grid {
+    grid-template-columns: 1fr;
+}
+
+.page-hero {
+    background: linear-gradient(140deg, var(--primary-color) 0%, #083358 100%);
+    color: var(--white);
+    padding: 4rem, 0;
+    text-align: center;
+}
+
+.page-hero h1 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.page-hero .subtitle {
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+.about-main {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.about-main-text h2 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.about-main-text h3 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    color: var(--primary-color);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5em;
+}
+
+.about-main-text p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.about-main-text ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-main-text ul li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.why-choose-us {
+    padding: 4rem 0;
+    background-color: var(--light-bg);
+} 
+
+.why-choose-us h2 {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.why-card {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.why-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.why-card h3 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.why-card p {
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+.why-image-card {
+    grid-column: span 2;
+    border-radius: 8px;
+    overflow:hidden;
+    box-shadow: var(--shadow);
+}
+
+.why-image-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.stats-section {
+    padding: 4rem 0;
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+}
+
+.stats-item h3 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+
+.stats-item p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.cta-section {
+    padding: 4rem 0;
+    background-color: var(--white);
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-image-card {
+        grid-column: span 1;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .page-hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+.contact-details-section {
+    padding: 4rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.contact-details-section h2 {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.875rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.contact-grid {
+    display: flex;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.contact-card-hover {
+    transform: translateY(-5px);
+}
+
+.contact-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.contact-card h3 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.conact-card p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.contact-card a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.contact-card address p {
+    margin-bottom: 0.4rem;
+}
+
+.contact-image {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.contact-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.map-section {
+    padding: 4rem 0;
+    background-color: var(--light-bg);
+}
+
+.map-section h2 {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.875rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.map-container {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 3rem;
+}
+
+.map-container iframe {
+    display: block;
+}
+
+.directions-text h3 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.directions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.directions-item {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.directions-item h4 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--shadow);
+}
+
+.directions-item p {
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+.hours-section {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.hours-section h2 {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.hours-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.hours-card {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.hours-card h3 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+}
+
+.hours-card p {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.hours-card strong {
+    color: var(--accent-color);
+}
+
+.contact-form-section {
+    padding: 4rem 0;
+    background-color: var(--light-bg);
+}
+
+.contact-form-section h2 {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.contact-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--white);
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 2px solid var(--light-bg);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .directions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hours-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        padding: 2rem 1.5rem;
+    }
+
+    .map-container iframe {
+        height: 300px;
+    }
+}
+
+.intro-section {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.intro-section h2 {
+    font-family: "Merriweather", "Georgia", serif;
+    font-size: 1.875rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.intro-section p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-color);
+}
+
+.courses-section {
+    padding: 4rem 0;
+    background-color: var(--light-bg);
+}
+
+.courses-section h2 {
+    font-family: "Merriweather", "Georgia", serif;
+    font-size: 1.875rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    text-align: center;
+    font-weight: bold;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    gap: 2rem;
+}
+
+.courses-card {
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.courses-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+}
+
+.course-icon {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.course-card h3 {
+    font-family: "Merriweather", "Georgia", serif;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.course-meta {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--light-bg);
+
+}
+
+.course-meta span {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.course-description {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    flex-grow: 1;
+}
+
+.course-highlights li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-color);
+}
+
+.course-highlights li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.course-card .btn {
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+}
+
+.societies-section {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.societies-section h2 {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.section-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.societies-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.society-card {
+    background: linear-gradient(135deg, var(--primary-color));
+    color: var(--white);
+    padding: 2.5rem;
+    border-bottom: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.society-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+.society-icon {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.society-card h3 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+.society-card > p {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.society-details {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+}
+
+.society-details p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.society-details strong {
+    color: var(--accent-color);
+}
+
+@media (max-width: 992px) {
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .societies-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .course-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .intro-section p {
+        font-size: 1rem;
+    }
+}
+
+.design-intro {
+    padding: 3rem 0;
+    background-color: var(--white);
+}
+
+.intro-content-centered {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro-tagline {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.intro-image-box {
+    background-color: var(--light-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.intro-image-box img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.image-caption {
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.design-courses-section {
+    padding: 4rem 0;
+    background-color: var(--light-bg);
+}
+
+.design-courses-section h2 {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.875rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.design-courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.design-course-box {
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid transparent;
+}
+
+.design-course-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+    border-color: var(--accent-color);
+}
+
+.design-course-box .course-icon {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.design-course-box h3 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.design-course-box p {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    flex-grow: 1;
+}
+
+.design-highlights {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.design-highlights li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-color);
+}
+
+.design-highlights li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.professional-links-section {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.professional-links-section h2 {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.875rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.professional-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.professional-intro {
+    text-align: center;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+    padding: 2rem;
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.links-showcase {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.link-category {
+    background-color: var(--light-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.link-category h3 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.link-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.link-category li {
+    padding: 0.75rem 0;
+    color: var(--text-color);
+    border-bottom: 1px solid rgba(10, 67, 124, 0.1);
+}
+
+.link-category li:last-child {
+    border-bottom: none;
+}
+
+.industry-benefits {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #083358 100%);
+    color: var(--white);
+    padding: 3rem;
+    border-radius: 8px;
+    margin-top: 3rem;
+}
+
+.industry-benefits h3 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+.industry-benefits > p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.benefit-item {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.benefit-item p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.student-work-section {
+    padding: 4rem 0;
+    background-color: var(--light-bg);
+}
+
+.student-work-section h2 {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.student-work-section .section-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+.work-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.gallery-item {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.gallery-caption {
+    padding: 1.5rem;
+}
+
+.gallery-caption h4 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.gallery-caption p {
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 992px) {
+    .design-courses-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .links-showcase {
+        grid-template-columns: 1fr;
+    }
+
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .work-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .intro-image-box img {
+        height: 250px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-tagline {
+        font-size: 1.1rem;
+    }
+}
+
+.facilities-intro {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.intro-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.intro-image img {
+    width: 100%;
+    height: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.intro-text h2 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.875rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.intro-text p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.stats-inline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.stats-inline strong {
+    display: block;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.stats-inline-item span {
+     font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.facility-features {
+    padding: 4rem 0;
+    background-color: var(--light-bg);
+}
+
+.facility-features h2 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.875rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.feature-box {
+     background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    border-color: var(--accent-color);
+}
+
+.feature-icon {
+    font-family: 'Merriweather', 'Georgia', serif;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature-box h3 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.additional-facilities {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.additional-facilities h2 {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.875rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.additional-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.additional-item {
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.additional-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.additional-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.additional-content {
+    padding: 2rem;
+}
+
+.additional-content h3 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.additional-content p {
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+.facilities-list-section {
+    background-color: var(--light-bg);
+    padding: 3rem;
+    border-radius: 8px;
+    margin-top: 3rem;
+}
+
+.facilities-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+}
+
+.facilities-list {
+    list-style: none;
+    padding: 0;
+}
+
+.facilities-list li {
+    padding: 1rem 0;
+    padding-left: 2rem;
+    position: relative;
+    color: var(--text-color);
+    font-size: 1.05rem;
+    border-bottom: 1px solid rgba(10, 67, 124, 0.1);
+}
+
+.facilities-list li:last-child {
+    border-bottom: none;
+}
+
+.facilities-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 992px) {
+    .intro-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-image {
+        order: -1;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .additional-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-inline {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .facilities-columns {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-inline {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-image img {
+        max-height: 300px;
+    }
+}
+
+.library-rules-section {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.section-main-title {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.rules-section {
+    margin-bottom: 3rem;
+}
+
+.section-header {
+    background-color: var(--light-bg);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--primary-color);
+}
+
+.rules-list-single {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.rule-item {
+    background-color: var(--light-bg);
+    padding: 1.2rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0,3s ease;
+}
+
+.rules-item:hover {
+    background-color: var(--white);
+    border-color: var(--accent-color);
+    box-shadow: var(--shadow);
+    transform: translateX(5px);
+}
+
+.rule-number {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1rem;
+    min-width: 30px;
+}
+
+.rules-text {
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.5;
+
+
+}
+
+.additional-info-section {
+    padding: 4rem 0;
+    background-color: var(--light-bg);
+}
+
+.additional-info-section h2 {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.875rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+    font-weight: bold;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.info-card {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.info-card h3 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.info-card p {
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+.hours-highlight {
+    padding: 3rem 0;
+    background-color: linear-gradient(135deg, var(--primary-color) 0%, #083358 100%);
+    color: var(--white);
+}
+
+.hours-highlight h2 {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.875rem;
+    margin-bottom: 2rem;
+    color: var(--white);
+}
+
+.hours-display {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.hours-item {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    background-color: rgba(225, 255, 255, 0.1);
+    border-radius: 8px;
+    min-width: 250px;
+}
+
+.hours-item strong {
+    display: block;
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.hours-item span {
+    font-size: 1.1rem;
+}
+
+@media (max-width: 992px) {
+    .rules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hours-display {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-header {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+
+    .rule-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .rule-number {
+        min-width: auto;
+    }
+
+}
+
+.staff-services-section {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.services-title {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.services-item {
+    background-color: var(--light-bg);
+    padding: 1.5rem 2rem;
+    border: 1px solid #ddd;
+    border-bottom: 2px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.service-item:first-child {
+    border-radius: 8px 8px 0 0;
+}
+
+.service-item:last-child {
+    border-radius: 0 0 8px 8px;
+}
+
+.services-item:hover {
+    background-color: var(--white);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateX(10px);
+    border-left: 4px solid var(--accent-color);
+}
+
+.services-item h3 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.service-item p {
+    color: var(--text-color);
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .services-title {
+        font-size: 2rem;
+    }
+
+    .service-item {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .service-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .service-item:hover {
+        transform: translateX(5px);
+    }
+}
+
+.business-services-section {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.section-title-business {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.business-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.business-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.business-service-box {
+    background-color: var(--light-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.business-service-box:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.business-service-box h3 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.business-service-box p {
+    color: var(--text-color);
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.professional-links-business {
+    padding: 4rem 0;
+    background-color: var(--light-bg);
+}
+
+.professional-links-business h2 {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.links-description {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    color: var(--text-color);
+}
+
+.cta-business {
+    text-align: center;
+}
+
+.btn-business-large {
+    display: inline-block;
+    padding: 1.5rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: var(--accent-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(242, 139, 48, 0.3);
+}
+
+.btn-business-large:hover {
+    background-color: #d17a28;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(242, 139, 48, 0.4);
+}
+
+.why-partner-section {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.why-partner-section h2 {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.partner-benefits {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.benefit-box {
+    background-color: var(--light-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.benefit-box:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.benefit-box h3 {
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.benefit-box p {
+    color: var(--text-color);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 992px) {
+    .business-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .partner-benefits {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title-business {
+        font-size: 2rem;
+    }
+
+    .business-service-box {
+        padding: 1.5rem;
+    }
+
+    .business-service-box h3 {
+        font-size: 1.2rem;
+    }
+
+    .partner-benefits {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-business-large {
+        padding: 1.25rem 2rem;
+        font-size: 1.1rem;
+    }
+}
+
+.contact-intro-section {
+    padding: 3rem 0;
+    background-color: var(--white);
+}
+
+.contact-intro-section h2 {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.contact-info-box {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: var(--light-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    text-align: center;
+}
+
+.contact-info-box p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.contact-info-box p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-info-box strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Map Area Section */
+.map-area-section {
+    padding: 4rem 0;
+    background-color: var(--light-bg);
+}
+
+.map-area-section h2 {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.map-placeholder {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.map-placeholder iframe {
+    border-radius: 8px;
+    display: block;
+}
+
+.map-caption {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    font-style: italic;
+}
+
+/* Contact Form Area */
+.contact-form-area {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.contact-form-area h2 {
+    text-align: center;
+    font-family: 'Merriweather', 'Georgia', serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.simple-contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+}
+
+.form-field label {
+    background-color: var(--light-bg);
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    border: 1px solid #ddd;
+    border-bottom: none;
+    font-size: 1.1rem;
+}
+
+.form-field:first-child label {
+    border-radius: 8px 8px 0 0;
+}
+
+.form-field input,
+.form-field textarea {
+    padding: 1rem 1.5rem;
+    border: 1px solid #ddd;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: var(--white);
+    transition: border-color 0.3s ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: #fffbf7;
+}
+
+.form-field textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.send-button {
+    background-color: var(--light-bg);
+    padding: 1.25rem 2rem;
+    border: 1px solid #ddd;
+    border-radius: 0 0 8px 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.send-button:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+    border-color: var(--accent-color);
+}
+
+/* Responsive Design for Contact Page */
+@media (max-width: 768px) {
+    .contact-intro-section h2,
+    .map-area-section h2,
+    .contact-form-area h2 {
+        font-size: 2rem;
+    }
+
+    .contact-info-box {
+        padding: 1.5rem;
+    }
+
+    .contact-info-box p {
+        font-size: 1rem;
+    }
+
+    .map-placeholder {
+        padding: 1rem;
+    }
+
+    .map-placeholder iframe {
+        height: 300px;
+    }
+
+    .form-field label {
+        padding: 0.875rem 1.25rem;
+        font-size: 1rem;
+    }
+
+    .form-field input,
+    .form-field textarea {
+        padding: 0.875rem 1.25rem;
+    }
+
+    .send-button {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+
+
+
+
+
+
+
