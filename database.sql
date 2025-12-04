@@ -1,0 +1,1 @@
+SELECT * FROM mydb.staff LIMIT 10;

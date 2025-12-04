@@ -291,7 +291,7 @@ body {
 
 .social-icons a {
     display: inline-block;
-    width: 40px;
+    width: 43px;
     height: 40px;
     background-color: var(--accent-color);
     border-radius: 50%;
@@ -2110,7 +2110,6 @@ body {
     font-weight: 600;
 }
 
-/* Map Area Section */
 .map-area-section {
     padding: 4rem 0;
     background-color: var(--light-bg);
@@ -2147,7 +2146,6 @@ body {
     font-style: italic;
 }
 
-/* Contact Form Area */
 .contact-form-area {
     padding: 4rem 0;
     background-color: var(--white);
@@ -2232,7 +2230,6 @@ body {
     border-color: var(--accent-color);
 }
 
-/* Responsive Design for Contact Page */
 @media (max-width: 768px) {
     .contact-intro-section h2,
     .map-area-section h2,
@@ -2271,8 +2268,100 @@ body {
         font-size: 1rem;
     }
 }
+/*JS section= */
 
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* REQUIRED for .navigation absolute menu */
+}
 
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navigation {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        background-color: var(--white);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+     .navigation.active {
+        max-height: 1000px; /* allows long menus */
+    }
+
+    .navigation ul {
+        flex-direction: column;
+        padding: 1rem 0;
+    }
+
+    .navigation li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-color);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.scroll-to-top:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
 
 
 
