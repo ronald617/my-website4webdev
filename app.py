@@ -1,43 +1,42 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 import mysql.connector
 
 app = Flask(__name__)
 
-# MySQL configuration
-db_config = {
-    'host': 'localhost',      # usually localhost
-    'user': 'root',
-    'password': 'myPassword$12',
-    'database': 'mydb'
-}
 
-# HOME PAGE
-@app.route('/')
-def index():
-    return render_template('index.html')
 
-# ABOUT PAGE
-@app.route('/about')
-def about():
-    return render_template('about.html')
+@app.route('/test-css')
+def test_css():
+    return '''
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <h1 style="color: red;">If this is styled, CSS works</h1>
+    '''
 
-# COURSES PAGE
+
+
+
+
+
+# Route for /courses page
 @app.route('/courses')
-def courses():
-    # Connect to MySQL
-    conn = mysql.connector.connect(**db_config)
-    cursor = conn.cursor(dictionary=True)  # dictionary=True gives column names
+def courses_page():
+    # Connect to your MySQL database
+    db = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="myPassword$12",  # <-- your DB password
+        database="mydb"            # <-- your DB name
+    )
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM courses")  # <-- your table name
+    rows = cursor.fetchall()
+    db.close()  # Always close the connection
+    return render_template("courses.html", data=rows)
 
-    # Fetch courses from your table
-    cursor.execute("SELECT id, name, description FROM courses")  # replace 'courses' with your table name
-    courses = cursor.fetchall()
+# Root URL redirects to /courses
+@app.route('/')
+def home():
+    return redirect('/courses')
 
-    # Close connection
-    cursor.close()
-    conn.close()
-
-    # Render template
-    return render_template('courses.html', courses=courses)
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)

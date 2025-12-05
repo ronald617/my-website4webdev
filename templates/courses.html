@@ -1,142 +1,103 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cantor College - Leaders in Computing and Design</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <title>Cantor College - Courses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
 </head>
+<body>
 
-<header class ="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <img src="images/logo.png" alt="Cantor College Logo">
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Cantor College Logo">
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="howToFindUs.html">How to Find Us</a></li>
+                    <li><a href="computing.html">Computing Coruses</a></li>
+                    <li><a href="deisgn.html">Design Coruses</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                    <li><a href="learningResources.html">learning Resources</a></li>
+                    <li><a href="informationStaff.html">Information For Staff</a></li>
+                    <li><a href="informationStudents.html">Information For Students</a></li>
+                    <li><a href="businesses.html">Working with Businesses</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="/courses">Courses</a></li> <!-- Fixed for Flask -->
+                </ul>
+            </nav> 
+        </div>
+    </div>
+</header>
+
+<main>
+    <h1>Courses</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Instructor</th>
+                <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row.course_name }}</td>
+                <td>{{ row.instructor }}</td>
+                <td>{{ row.duration }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</main>
+
+<footer class="footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: <a href="mailto:info@cantorcollege.ac.uk">info@cantorcollege.ac.uk</a></p>
+                <p>Phone: <a href="tel:+441321234235">(01321) 2340 235</a></p>
+            </div>
+            <div class="footer-section">
+                <h4>Address</h4>
+                <address style="font-style: normal;">
+                    <p>Cantor College</p>
+                    <p>Main Street, Sheffield</p>
+                    <p>SC4 2BB, United Kingdom</p>
+                </address>
+            </div>
+            <div class="footer-section">
+                <h4>Social Media</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer">FB</a>
+                    <a href="https://www.twitter.com" aria-label="Twitter" target="_blank" rel="noopener noreferrer">X/TW</a>
+                    <a href="https://www.instagram.com" aria-label="Instagram" target="_blank" rel="noopener noreferrer">IG</a>
+                    <a href="https://www.linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">LI</a>
                 </div>
-                <nav class="navigation">
-                    <ul>
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="howToFindUs.html">How to Find Us</a></li>
-                        <li><a href="computing.html">Computing Coruses</a></li>
-                        <li><a href="deisgn.html">Design Coruses</a></li>
-                        <li><a href="facilities.html">Facilities</a></li>
-                        <li><a href="learningResources.html">learning Resources</a></li>
-                        <li><a href="informationStaff.html">Information For Staff</a></li>
-                        <li><a href="informationStudents.html">Information For Students</a></li>
-                        <li><a href="businesses.html">Working with Businesses</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
-                </nav> 
+            </div>
+            <div class="footer-section">
+                <h4>Information</h4>
+                <p><a href="staff.html">For Staff</a></p>
+                <p><a href="students.html">For Students</a></p>
+                <p><a href="privacy.html">Privacy Policy</a></p>
+                <p><a href="terms.html">Terms & Conditions</a></p>
             </div>
         </div>
-    </header>
-
-    <h1>Our Courses</h1>
-
-{% if courses %}
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Course Name</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for course in courses %}
-        <tr>
-            <td>{{ course.id }}</td>
-            <td>{{ course.name }}</td>
-            <td>{{ course.description }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-{% else %}
-<p>No courses available at the moment.</p>
-{% endif %}
-
-
-
-
-
-
-
-
-
-
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: <a href="mailto:info@cantorcollege.ac.uk">info@cantorcollege.ac.uk</a></p>
-                    <p>Phone: <a href="tel:+441321234235">(01321) 2340 235</a></p>
-                </div>
-                <div class="footer-section">
-                    <h4>Address</h4>
-                    <address style="font-style: normal;">
-                        <p>Cantor College</p>
-                        <p>Main Street, Sheffield</p>
-                        <p>SC4 2BB, United Kingdom</p>
-                    </address>
-                </div>
-                <div class="footer-section">
-                    <h4>Social Media</h4>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer">FB</a>
-                        <a href="https://www.twitter.com" aria-label="Twitter" target="_blank" rel="noopener noreferrer">X/TW</a>
-                        <a href="https://www.instagram.com" aria-label="Instagram" target="_blank" rel="noopener noreferrer">IG</a>
-                        <a href="https://www.linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">LI</a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Information</h4>
-                    <p><a href="staff.html">For Staff</a></p>
-                    <p><a href="students.html">For Students</a></p>
-                    <p><a href="privacy.html">Privacy Policy</a></p>
-                    <p><a href="terms.html">Terms & Conditions</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Cantor College. All rights reserved.</p>
-            </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Cantor College. All rights reserved.</p>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <script src="js/script.js"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 </body>
 </html>

@@ -1,1 +1,0 @@
-SELECT * FROM mydb.courses LIMIT 10;
