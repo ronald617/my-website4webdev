@@ -1,1 +1,1 @@
-SELECT * FROM mydb.staff LIMIT 10;
+SELECT * FROM mydb.courses LIMIT 10;

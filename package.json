@@ -20,6 +20,7 @@
   "homepage": "https://github.com/ronald617/my-website4webdev#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "ejs": "^3.1.10",
     "express": "^5.2.1",
     "mysql2": "^3.15.3"
   }
